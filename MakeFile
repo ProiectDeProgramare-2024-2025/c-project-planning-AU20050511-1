@@ -1,0 +1,22 @@
+CXX = g++
+CXXFLAGS = -Wall -Wextra -std=c++17 -Iinclude
+LDFLAGS =
+
+# Sources
+SRC = src/Incident.cpp src/IncidentManager.cpp src/Utils.cpp
+INC = include/Incident.h include/IncidentManager.h include/Utils.h include/Colors.h
+
+# Targets
+TARGET1 = main1
+TARGET2 = main2
+
+all: $(TARGET1) $(TARGET2)
+
+$(TARGET1): main1.cpp $(SRC) $(INC)
+	$(CXX) $(CXXFLAGS) main1.cpp $(SRC) -o $(TARGET1) $(LDFLAGS)
+
+$(TARGET2): main2.cpp $(SRC) $(INC)
+	$(CXX) $(CXXFLAGS) main2.cpp $(SRC) -o $(TARGET2) $(LDFLAGS)
+
+clean:
+	rm -f $(TARGET1) $(TARGET2) *.o
